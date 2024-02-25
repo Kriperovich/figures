@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Вращающийся прямоугольник</title>
+<style>
+  .container {
+    width: 250px; /* увеличенная ширина */
+    height: 250px; /* увеличенная высота */
+    position: fixed;
+    left: 55%; /* измененное значение */
+    top: 60%;
+    transform: translate(-50%, -50%);
+    perspective: 1000px;
+  }
+
+  .rectangle {
+    width: 150px; /* увеличенная ширина */
+    height: 75px; /* увеличенная высота */
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform-style: preserve-3d;
+    animation: rotate 5s linear infinite;
+  }
+
+  .side {
+    position: absolute;
+    width: 150px; /* увеличенная ширина */
+    height: 75px; /* увеличенная высота */
+    background-color: transparent;
+    border: 1px solid black;
+    box-sizing: border-box;
+  }
+
+  .side.side1 { 
+    transform: rotateY(0deg) translateZ(37.5px); /* половина ширины */
+    background-color: red;
+  }
+
+  .side.side2 { 
+    transform: rotateY(90deg) translateZ(37.5px); /* половина ширины */
+    background-color: blue;
+  }
+
+  .side.side3 { 
+    transform: rotateY(180deg) translateZ(37.5px); /* половина ширины */
+    background-color: green;
+  }
+
+  .side.side4 { 
+    transform: rotateY(-90deg) translateZ(37.5px); /* половина ширины */
+    background-color: yellow;
+  }
+
+  @keyframes rotate {
+    from { transform: rotateY(0deg); }
+    to { transform: rotateY(360deg); }
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="rectangle">
+      <div class="side side1"></div>
+      <div class="side side2"></div>
+      <div class="side side3"></div>
+      <div class="side side4"></div>
+    </div>
+  </div>
+</body>
+</html>
+

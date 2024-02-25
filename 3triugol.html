@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Крутящийся треугольник</title>
+<style>
+  .container {
+    position: fixed;
+    top: 50%;
+    right: 500px; /* Сдвиг влево */
+    transform: translateY(-50%);
+    width: 200px; /* Размеры треугольника */
+    height: 200px; /* Размеры треугольника */
+  }
+  
+  .triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent; /* Размеры треугольника */
+    border-right: 100px solid transparent; /* Размеры треугольника */
+    border-bottom: 173px solid; /* Высота треугольника (sqrt(3)/2 * width) */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    animation: spin 3s linear infinite; /* Анимация вращения */
+  }
+  
+  @keyframes spin {
+    100% {
+      transform: translateX(-50%) translateY(-50%) rotate(360deg); /* Поворот на 360 градусов */
+    }
+  }
+  
+  .triangle.side1 {
+    border-bottom-color: red; /* Цвет первой стороны */
+  }
+  
+  .triangle.side2 {
+    border-bottom-color: green; /* Цвет второй стороны */
+    transform: rotate(-120deg); /* Поворот для второй стороны */
+  }
+  
+  .triangle.side3 {
+    border-bottom-color: blue; /* Цвет третьей стороны */
+    transform: rotate(-240deg); /* Поворот для третьей стороны */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="triangle side1"></div>
+  <div class="triangle side2"></div>
+  <div class="triangle side3"></div>
+</div>
+
+</body>
+</html>
+
